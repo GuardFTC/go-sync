@@ -9,8 +9,8 @@ import (
 
 // mutexTest 测试Mutex
 type mutexTest struct {
-	i int
-	sync.Mutex
+	i          int
+	sync.Mutex //读读阻塞、读写阻塞、写写阻塞
 }
 
 // IncWithLock 加锁递增

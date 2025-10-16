@@ -10,15 +10,15 @@ import (
 // mutexTest 测试Mutex
 type mutexTest struct {
 	i int
-	m sync.Mutex
+	sync.Mutex
 }
 
 // IncWithLock 加锁递增
 func (m *mutexTest) incWithLock() {
 
 	//1.加锁
-	m.m.Lock()
-	defer m.m.Unlock()
+	m.Lock()
+	defer m.Unlock()
 
 	//2.i增加
 	m.i++
@@ -29,12 +29,13 @@ func (m *mutexTest) incWithoutLock() {
 	m.i++
 }
 
+// TestMutex 测试Mutex
 func TestMutex() {
 
 	//1.创建MutexTest对象
 	mt := mutexTest{}
 
-	//2.创建10个协程，对i进行递增(加锁)
+	//2.创建10000个协程，对i进行递增(加锁)
 	for i := 0; i < 10000; i++ {
 		go mt.incWithLock()
 	}
@@ -42,12 +43,12 @@ func TestMutex() {
 	//3.输出i的值
 	time.Sleep(1 * time.Second)
 	lockI := mt.i
-	log.Printf("inc with lock i = %d\n", lockI)
+	log.Printf("inc with mutex lock i = %d\n", lockI)
 
 	//4.重置i
 	mt.i = 0
 
-	//5.创建10个协程，对i进行递增(不加锁)
+	//5.创建10000个协程，对i进行递增(不加锁)
 	for i := 0; i < 10000; i++ {
 		go mt.incWithoutLock()
 	}
@@ -55,5 +56,5 @@ func TestMutex() {
 	//6.输出i的值
 	time.Sleep(1 * time.Second)
 	NotLockI := mt.i
-	log.Printf("inc without lock i = %d\n", NotLockI)
+	log.Printf("inc without mutex lock i = %d\n", NotLockI)
 }

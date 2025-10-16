@@ -13,4 +13,7 @@ func main() {
 
 	//2.mutex锁测试
 	sync_test.TestMutex()
+
+	//3.rwMutex锁测试
+	sync_test.TestRWMutex()
 }

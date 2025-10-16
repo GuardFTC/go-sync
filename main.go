@@ -16,4 +16,7 @@ func main() {
 
 	//3.rwMutex锁测试
 	sync_test.TestRWMutex()
+
+	//4.WaitGroup测试
+	sync_test.TestWaitGroup()
 }

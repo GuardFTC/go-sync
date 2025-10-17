@@ -24,5 +24,8 @@ func main() {
 	//sync_test.PoolTest()
 
 	//7.AtomicAddInt测试
-	atomic_test.AddInt32Test()
+	//atomic_test.AddInt32Test()
+
+	//8.AtomicCAS测试
+	atomic_test.TestCompareAndSwap()
 }

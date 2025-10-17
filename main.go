@@ -19,4 +19,7 @@ func main() {
 
 	//4.WaitGroup测试
 	sync_test.TestWaitGroup()
+
+	//5.Once测试
+	sync_test.TestOnce()
 }

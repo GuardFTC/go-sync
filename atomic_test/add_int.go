@@ -40,37 +40,3 @@ func AddInt32Test() {
 	log.Printf("不使用原子类 int32: %d", resultWithOutAtomic)
 	log.Printf("使用原子类 int32: %d", resultWithAtomic)
 }
-
-// AddInt64Test 测试AddInt
-func AddInt64Test() {
-
-	//1.创建WaitGroup
-	var wg sync.WaitGroup
-
-	//2.并发10000次执行,不使用原子类
-	var resultWithOutAtomic int64
-	for i := 0; i < 10000; i++ {
-		wg.Add(1)
-		go func() {
-			defer wg.Done()
-			resultWithOutAtomic++
-		}()
-	}
-
-	//3.并发10000次执行,使用原子类
-	var resultWithAtomic int64
-	for i := 0; i < 10000; i++ {
-		wg.Add(1)
-		go func() {
-			defer wg.Done()
-			atomic.AddInt64(&resultWithAtomic, 1)
-		}()
-	}
-
-	//4.等地执行完成
-	wg.Wait()
-
-	//5.输出最终结果
-	log.Printf("不使用原子类 int64: %d", resultWithOutAtomic)
-	log.Printf("使用原子类 int64: %d", resultWithAtomic)
-}

@@ -25,5 +25,4 @@ func main() {
 
 	//7.AtomicAddInt测试
 	atomic_test.AddInt32Test()
-	atomic_test.AddInt64Test()
 }

@@ -2,24 +2,26 @@
 package main
 
 import (
-	"go-sync/base"
 	"go-sync/sync_test"
 )
 
 func main() {
 
 	//1.协程/channel/select测试
-	base.TestGoroutineAndChanAndSelect()
+	//base.TestGoroutineAndChanAndSelect()
 
 	//2.mutex锁测试
-	sync_test.TestMutex()
+	//sync_test.TestMutex()
 
 	//3.rwMutex锁测试
-	sync_test.TestRWMutex()
+	//sync_test.TestRWMutex()
 
 	//4.WaitGroup测试
-	sync_test.TestWaitGroup()
+	//sync_test.TestWaitGroup()
 
 	//5.Once测试
-	sync_test.TestOnce()
+	//sync_test.TestOnce()
+
+	//6.Pool测试
+	sync_test.PoolTest()
 }

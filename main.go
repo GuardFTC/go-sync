@@ -27,5 +27,8 @@ func main() {
 	//atomic_test.AddInt32Test()
 
 	//8.AtomicCAS测试
-	atomic_test.TestCompareAndSwap()
+	//atomic_test.TestCompareAndSwap()
+
+	//9.AtomicLoadStore测试
+	atomic_test.LoadStoreTest()
 }

@@ -1,9 +1,7 @@
 // Package main @Author:冯铁城 [17615007230@163.com] 2025-10-16 15:06:22
 package main
 
-import (
-	"go-sync/sync_test"
-)
+import "go-sync/atomic_test"
 
 func main() {
 
@@ -23,5 +21,9 @@ func main() {
 	//sync_test.TestOnce()
 
 	//6.Pool测试
-	sync_test.PoolTest()
+	//sync_test.PoolTest()
+
+	//7.AtomicAddInt测试
+	atomic_test.AddInt32Test()
+	atomic_test.AddInt64Test()
 }

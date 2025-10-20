@@ -33,5 +33,8 @@ func main() {
 	//atomic_test.LoadStoreTest()
 
 	//10.并发模式 生产者-消费者模式测试
-	pattern.ProducerAndConsumerTest()
+	//pattern.ProducerAndConsumerTest()
+
+	//11.并发模式 工作池模式测试
+	pattern.WorkPoolTest()
 }

@@ -39,5 +39,8 @@ func main() {
 	//pattern.WorkPoolTest()
 
 	//12.并发模式 流水线模式测试
-	pattern.PipelineTest()
+	//pattern.PipelineTest()
+
+	//13.并发模式 Fanin模式测试
+	pattern.FanInTest()
 }

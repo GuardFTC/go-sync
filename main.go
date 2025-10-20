@@ -1,7 +1,7 @@
 // Package main @Author:冯铁城 [17615007230@163.com] 2025-10-16 15:06:22
 package main
 
-import "go-sync/atomic_test"
+import "go-sync/pattern"
 
 func main() {
 
@@ -30,5 +30,8 @@ func main() {
 	//atomic_test.TestCompareAndSwap()
 
 	//9.AtomicLoadStore测试
-	atomic_test.LoadStoreTest()
+	//atomic_test.LoadStoreTest()
+
+	//10.并发模式 生产者-消费者模式测试
+	pattern.ProducerAndConsumerTest()
 }

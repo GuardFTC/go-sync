@@ -36,5 +36,8 @@ func main() {
 	//pattern.ProducerAndConsumerTest()
 
 	//11.并发模式 工作池模式测试
-	pattern.WorkPoolTest()
+	//pattern.WorkPoolTest()
+
+	//12.并发模式 流水线模式测试
+	pattern.PipelineTest()
 }

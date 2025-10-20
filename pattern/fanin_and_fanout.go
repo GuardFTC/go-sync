@@ -6,13 +6,13 @@ import (
 	"sync"
 )
 
-// fanInSquare 扇入-计算平方
-func fanInSquare(id int, in <-chan int, out chan<- int, wg *sync.WaitGroup) {
+// fanOutSquare 扇出-计算平方
+func fanOutSquare(id int, in <-chan int, out chan<- int, wg *sync.WaitGroup) {
 
 	//1.确保释放waitGroup标识位
 	defer func() {
 		wg.Done()
-		log.Printf("fanInSquare-%v写入结束", id)
+		log.Printf("fanOutSquare-%v写入结束", id)
 	}()
 
 	//2.从输入channel中读取数据，计算平方，并写入输出channel中
@@ -21,8 +21,8 @@ func fanInSquare(id int, in <-chan int, out chan<- int, wg *sync.WaitGroup) {
 	}
 }
 
-// FanInTest 扇入模式测试
-func FanInTest() {
+// FanOutTest 扇出模式测试
+func FanOutTest() {
 
 	//1.创建waitGroup
 	wg := sync.WaitGroup{}
@@ -31,10 +31,10 @@ func FanInTest() {
 	in := make(chan int)
 	out := make(chan int)
 
-	//3.启动3个协程，进行扇入计算
+	//3.启动3个协程，进行扇出计算
 	for i := 0; i < 3; i++ {
 		wg.Add(1)
-		go fanInSquare(i, in, out, &wg)
+		go fanOutSquare(i, in, out, &wg)
 	}
 
 	//4.创建协程，异步向输入channel中写入数据

@@ -41,6 +41,6 @@ func main() {
 	//12.并发模式 流水线模式测试
 	//pattern.PipelineTest()
 
-	//13.并发模式 Fanin模式测试
-	pattern.FanInTest()
+	//13.并发模式 FanOut模式测试
+	pattern.FanOutTest()
 }
